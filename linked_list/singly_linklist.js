@@ -43,8 +43,19 @@ class SinglyLinkedList {
       this.tail = null;
     }
     newTail.next = null;
-    console.log(this.head);
     return current;
+  }
+  shift() {
+    if (!this.head) return undefined;
+    var currentHead = this.head;
+    this.head = currentHead.next;
+    this.length--;
+    if (this.length == 0) {
+      this.tail = null;
+    }
+  }
+  node() {
+    return this;
   }
 }
 
@@ -55,6 +66,8 @@ let link3 = link.push("kazi 2");
 let pop1 = link.pop();
 
 console.log(pop1);
+console.log("---------------");
 console.log(link.pop());
-console.log(link.pop());
-console.log(link.pop());
+link.shift();
+
+console.log(link.node());
