@@ -27,11 +27,34 @@ class SinglyLinkedList {
 
     return this;
   }
+
+  pop() {
+    if (!this.head) return undefined;
+    var current = this.head;
+    var newTail = current;
+
+    while (current.next) {
+      newTail = current;
+      current = current.next;
+    }
+    this.length--;
+    if (this.length == 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    newTail.next = null;
+    console.log(this.head);
+    return current;
+  }
 }
 
 let link = new SinglyLinkedList();
 let link1 = link.push("kazi");
 let link2 = link.push("kazi 1");
 let link3 = link.push("kazi 2");
+let pop1 = link.pop();
 
-console.log(link3);
+console.log(pop1);
+console.log(link.pop());
+console.log(link.pop());
+console.log(link.pop());
